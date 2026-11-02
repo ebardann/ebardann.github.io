@@ -1,0 +1,41 @@
+baseURL = "https://ebardann.github.io/"
+locale = "en-US"
+title = "Emilio Bardán"
+theme = "plain"
+disableKinds = ["taxonomy", "term"]
+
+# Forthcoming papers often carry a future date; don't silently drop them.
+buildFuture = true
+
+[params]
+description = "Personal academic site of Emilio Bardán."
+
+[outputs]
+home = ["html"]
+section = ["html"]
+
+[[menus.main]]
+name = "Research"
+pageRef = "/research"
+weight = 1
+
+[[menus.main]]
+name = "Writing"
+pageRef = "/writing"
+weight = 2
+
+[[menus.main]]
+name = "CV"
+url = "/cv.pdf"
+weight = 3
+
+[markup.highlight]
+# Emit classes instead of inline colours. The theme styles none of them, so code stays monochrome.
+noClasses = false
+
+[markup.goldmark.extensions.passthrough]
+enable = true
+
+[markup.goldmark.extensions.passthrough.delimiters]
+inline = [['$', '$'], ['\(', '\)']]
+block = [['$$', '$$'], ['\[', '\]']]

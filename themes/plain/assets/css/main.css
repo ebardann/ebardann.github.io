@@ -1,0 +1,165 @@
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url(../fonts/source-serif-4-latin-wght-normal.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: italic;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url(../fonts/source-serif-4-latin-wght-italic.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url(../fonts/source-serif-4-latin-ext-wght-normal.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: italic;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url(../fonts/source-serif-4-latin-ext-wght-italic.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root {
+  color-scheme: light dark;
+  --bg: #fdfcf9;
+  --fg: #1d1c1a;
+  --muted: #5f5b54;
+  --rule: #dcd8cf;
+  --accent: #1f4e8c;
+  --code-bg: #f3f1ea;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17171a;
+    --fg: #e6e3dc;
+    --muted: #a8a49c;
+    --rule: #3a3a40;
+    --accent: #9dbcf0;
+    --code-bg: #222226;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  max-width: 70ch;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 5rem;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Source Serif 4", Georgia, serif;
+  line-height: 1.65;
+  overflow-wrap: break-word;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.15em;
+}
+a:hover { text-decoration-thickness: 0.12em; }
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
+  margin-bottom: 3.5rem;
+}
+.site-name { color: inherit; font-weight: 600; text-decoration: none; }
+nav { display: flex; flex-wrap: wrap; gap: 0 1.25rem; margin-left: auto; }
+nav a { color: var(--muted); text-decoration: none; }
+nav a:hover, nav a[aria-current] { color: var(--fg); }
+nav a[aria-current] { text-decoration: underline; text-decoration-thickness: 0.06em; text-underline-offset: 0.3em; }
+
+h1, h2, h3 { font-weight: 600; line-height: 1.25; text-wrap: balance; }
+h1 { margin: 0 0 1.25rem; font-size: 1.75rem; }
+h2 { margin: 2.75rem 0 1rem; font-size: 1.3rem; }
+h3 { margin: 2rem 0 0.5rem; font-size: 1.1rem; }
+
+p, ul, ol, blockquote, pre, table, figure { margin: 0 0 1.1rem; }
+p, li { text-wrap: pretty; }
+ul, ol { padding-left: 1.4rem; }
+img { display: block; max-width: 100%; height: auto; }
+hr { margin: 2.5rem 0; border: 0; border-top: 1px solid var(--rule); }
+
+blockquote {
+  padding-left: 1.1rem;
+  border-left: 2px solid var(--rule);
+  color: var(--muted);
+}
+
+table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; }
+th, td { padding: 0.3rem 1rem 0.3rem 0; border-bottom: 1px solid var(--rule); text-align: left; }
+
+code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.85em; }
+code { padding: 0.1em 0.25em; background: var(--code-bg); border-radius: 3px; }
+pre { padding: 0.9rem 1rem; overflow-x: auto; background: var(--code-bg); border-radius: 4px; line-height: 1.5; }
+pre code { padding: 0; background: none; font-size: inherit; }
+
+.meta { color: var(--muted); font-size: 0.95em; }
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.entry { margin-bottom: 2.25rem; }
+.entry h3 { margin-top: 0; }
+.entry p.meta { margin: 0; }
+.entry .links { margin: 0.35rem 0 0; }
+.entry cite { font-style: italic; }
+details { margin-top: 0.35rem; }
+summary { color: var(--muted); cursor: pointer; }
+details[open] summary { margin-bottom: 0.5rem; }
+
+.posts { padding: 0; list-style: none; }
+.posts li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 1.5rem; margin-bottom: 0.6rem; }
+
+.card {
+  display: flex;
+  gap: 1.1rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 0.75rem;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  color: inherit;
+  text-decoration: none;
+}
+.card:hover { border-color: var(--accent); }
+.card img { flex: 0 0 34%; width: 34%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 3px; }
+.card strong { display: block; font-weight: 600; line-height: 1.3; }
+.card:hover strong { color: var(--accent); }
+.card span { display: block; margin-top: 0.3rem; }
+.card .meta { font-size: 0.85em; }
+@media (max-width: 30rem) {
+  .card { flex-direction: column; align-items: stretch; gap: 0.75rem; }
+  .card img { flex: none; width: 100%; }
+}
+
+/* KaTeX's default 1.21em is sized for Computer Modern-like body text. */
+.katex { font-size: 1.1em; }
+/* Wide equations scroll inside their own box rather than pushing the page sideways. */
+.katex-display { margin: 1.25rem 0; padding: 0.25rem 0; overflow-x: auto; overflow-y: hidden; }

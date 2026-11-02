@@ -1,0 +1,24 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+{{- range .Params.external }}
+<a class="card" href="{{ .url }}">
+  {{- with .image }}<img src="{{ . | relURL }}" alt="">{{ end }}
+  <div>
+    <strong>{{ .title }}</strong>
+    {{- with .description }}<span>{{ . }}</span>{{ end }}
+    <span class="meta">{{ (time.AsTime .date).Format "2 Jan 2006" }} · {{ .source }}</span>
+  </div>
+</a>
+{{- end }}
+{{- with .RegularPages }}
+<ul class="posts">
+  {{- range . }}
+  <li>
+    <a href="{{ .RelPermalink }}">{{ .Title | .RenderString }}</a>
+    <time class="meta" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
+  </li>
+  {{- end }}
+</ul>
+{{- end }}
+{{ end }}

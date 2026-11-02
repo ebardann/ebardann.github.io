@@ -1,0 +1,11 @@
+{{ define "main" }}
+<h1>{{ site.Title }}</h1>
+{{ .Content }}
+{{- with .Params.links }}
+<ul class="links">
+  {{- range . }}
+  <li><a href="{{ .url }}">{{ .name }}</a></li>
+  {{- end }}
+</ul>
+{{- end }}
+{{ end }}

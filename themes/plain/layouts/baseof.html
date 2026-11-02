@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ or .Description site.Params.description }}">
+  <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="icon" href="data:,">
+  <link rel="preload" href="{{ "fonts/source-serif-4-latin-wght-normal.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+  {{- /* Loaded everywhere: list pages render math from child pages, so a per-page check would miss it. */}}
+  <link rel="stylesheet" href="{{ "katex/katex.min.css" | relURL }}">
+  {{- with resources.Get "css/main.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+  {{- end }}
+  {{- with .OutputFormats.Get "rss" }}
+  <link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ site.Title }}">
+  {{- end }}
+</head>
+<body>
+  <header>
+    {{- if not .IsHome }}
+    <a class="site-name" href="{{ "" | relURL }}">{{ site.Title }}</a>
+    {{- end }}
+    <nav aria-label="Main">
+      {{- range site.Menus.main }}
+      <a href="{{ .URL }}"{{ if $.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>{{ .Name }}</a>
+      {{- end }}
+    </nav>
+  </header>
+  <main>
+    {{- block "main" . }}{{ end }}
+  </main>
+</body>
+</html>

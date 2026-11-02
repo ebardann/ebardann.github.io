@@ -1,0 +1,27 @@
+<article class="entry" id="{{ .File.ContentBaseName }}">
+  <h3>{{ .Title | .RenderString }}</h3>
+  {{- with .Params.authors }}
+  <p class="meta">{{ delimit . ", " " and " }}</p>
+  {{- end }}
+  {{- if or .Params.venue (not .Date.IsZero) }}
+  <p class="meta">
+    {{- with .Params.venue }}<cite>{{ . }}</cite>{{ end }}
+    {{- if and .Params.venue (not .Date.IsZero) }}, {{ end }}
+    {{- if not .Date.IsZero }}{{ .Date.Year }}{{ end -}}
+  </p>
+  {{- end }}
+  {{- if or .Params.pdf .Params.arxiv .Params.code .Params.links }}
+  <ul class="links">
+    {{- with .Params.pdf }}<li><a href="{{ . | relURL }}">PDF</a></li>{{ end }}
+    {{- with .Params.arxiv }}<li><a href="https://arxiv.org/abs/{{ . }}">arXiv</a></li>{{ end }}
+    {{- with .Params.code }}<li><a href="{{ . }}">Code</a></li>{{ end }}
+    {{- range .Params.links }}<li><a href="{{ .url }}">{{ .name }}</a></li>{{ end }}
+  </ul>
+  {{- end }}
+  {{- with .Content }}
+  <details>
+    <summary>{{ if $.Params.project }}Details{{ else }}Abstract{{ end }}</summary>
+    {{ . }}
+  </details>
+  {{- end }}
+</article>

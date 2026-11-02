@@ -1,0 +1,12 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+{{- with where .RegularPages "Params.project" "!=" true }}
+<h2>Papers</h2>
+{{- range . }}{{ partial "entry.html" . }}{{ end }}
+{{- end }}
+{{- with where .RegularPages "Params.project" true }}
+<h2>Projects</h2>
+{{- range . }}{{ partial "entry.html" . }}{{ end }}
+{{- end }}
+{{ end }}
