@@ -1,13 +1,53 @@
 {{ define "main" }}
-{{- with .Params.image }}
-<img class="portrait" src="{{ . | relURL }}" alt="Photo of {{ site.Title }}" width="160" height="160">
-{{- end }}
-<h1>{{ site.Title }}</h1>
+<div class="intro">
+  {{- with .Params.image }}
+  <img class="portrait" src="{{ . | relURL }}" alt="Photo of {{ site.Title }}" width="400" height="400">
+  {{- end }}
+  <div>
+    <h1>{{ site.Title }}</h1>
+    {{- with .Params.affiliation }}
+    <p class="meta">{{ . }}</p>
+    {{- end }}
+    {{- with .Params.links }}
+    <ul class="links">
+      {{- range . }}
+      <li><a href="{{ .url }}">{{ with .icon }}{{ partial "icon.html" . }}{{ end }}{{ .name }}</a></li>
+      {{- end }}
+    </ul>
+    {{- end }}
+  </div>
+</div>
 {{ .Content }}
-{{- with .Params.links }}
-<ul class="links">
+{{- /* Newest dated entries from Research and Writing, including Writing's external essays. */}}
+{{- $items := slice }}
+{{- with site.GetPage "/research" }}
+  {{- $section := . }}
+  {{- range .RegularPages }}
+    {{- if not .Date.IsZero }}
+      {{- $items = $items | append (dict
+        "title" (.Title | .RenderString)
+        "url" (printf "%s#%s" $section.RelPermalink .File.ContentBaseName)
+        "date" .Date
+        "kind" (cond (eq .Params.project true) "Project" "Paper")) }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- with site.GetPage "/writing" }}
+  {{- range .RegularPages }}
+    {{- $items = $items | append (dict "title" (.Title | .RenderString) "url" .RelPermalink "date" .Date "kind" "Post") }}
+  {{- end }}
+  {{- range .Params.external }}
+    {{- $items = $items | append (dict "title" .title "url" .url "date" (time.AsTime .date) "kind" (printf "Essay · %s" .source)) }}
+  {{- end }}
+{{- end }}
+{{- with first 3 (sort $items "date" "desc") }}
+<h2>Recent</h2>
+<ul class="recent">
   {{- range . }}
-  <li><a href="{{ .url }}">{{ .name }}</a></li>
+  <li>
+    <a href="{{ .url }}">{{ .title }}</a>
+    <span class="meta">{{ .kind }} · <time datetime="{{ .date.Format "2006-01-02" }}">{{ .date.Format "Jan 2006" }}</time></span>
+  </li>
   {{- end }}
 </ul>
 {{- end }}

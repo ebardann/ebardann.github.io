@@ -100,7 +100,6 @@ p, ul, ol, blockquote, pre, table, figure { margin: 0 0 1.1rem; }
 p, li { text-wrap: pretty; }
 ul, ol { padding-left: 1.4rem; }
 img { display: block; max-width: 100%; height: auto; }
-.portrait { width: 8rem; height: 8rem; margin: 0 0 1.25rem; object-fit: cover; border-radius: 50%; }
 hr { margin: 2.5rem 0; border: 0; border-top: 1px solid var(--rule); }
 
 blockquote {
@@ -125,6 +124,21 @@ pre code { padding: 0; background: none; font-size: inherit; }
   padding: 0;
   list-style: none;
 }
+
+.intro { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; }
+.intro h1 { margin: 0; }
+.intro p.meta { margin: 0.15rem 0 0.5rem; }
+.intro .links { margin: 0; }
+.portrait { flex: none; width: 8rem; height: 8rem; object-fit: cover; border-radius: 50%; }
+@media (max-width: 30rem) {
+  .intro { gap: 1rem; align-items: flex-start; }
+  .portrait { width: 5.5rem; height: 5.5rem; }
+}
+.links a { white-space: nowrap; }
+.recent { padding: 0; list-style: none; }
+.recent li { margin-bottom: 0.9rem; }
+.recent .meta { display: block; font-size: 0.9em; }
+.icon { display: inline-block; width: 0.95em; height: 0.95em; margin-right: 0.35em; vertical-align: -0.12em; }
 
 .entry { margin-bottom: 2.25rem; }
 .entry h3 { margin-top: 0; }

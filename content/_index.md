@@ -1,18 +1,21 @@
 ---
 title: Home
-image: me.jpg   # profile photo in static/, shown above the name
+image: me.jpg   # profile photo in static/, shown beside the name
+affiliation: Applied Mathematics, Instituto Tecnológico Autónomo de México, class of 2027
 links:
   - name: Email
+    icon: email
     url: mailto:qbardan13@gmail.com
   - name: GitHub
+    icon: github
     url: https://github.com/ebardann
   - name: LinkedIn
+    icon: linkedin
     url: https://www.linkedin.com/in/emilio-bardan
   - name: CV
+    icon: cv
     url: /cv.pdf
 ---
-
-Applied Mathematics, Instituto Tecnológico Autónomo de México, class of 2027.
 
 I'm interested in why neural networks work, what structure they discover, how geometry constrains them, and their ability to represent concepts. Aiming to contribute towards a complete theory of deep learning and solving the intelligence problem.
 

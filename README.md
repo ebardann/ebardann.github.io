@@ -30,6 +30,8 @@ Every field is optional except `title`. Entries sort newest first, and `weight: 
 
 **The CV:** replace `static/cv.pdf`.
 
+**The home page:** `content/_index.md` holds the photo (`image`, a file in `static/`), the `affiliation` line, and the `links` beside the photo, each with an optional `icon` (`email`, `github`, `linkedin` or `cv`). Its body is the text below them. The Recent list under it fills itself from the three newest dated Research and Writing entries.
+
 ## Math
 
 KaTeX renders math at build time through `transform.ToMath`, so readers download CSS and fonts but no JavaScript. Use `$…$` inline and `$$…$$` for display. Write a literal dollar sign as `\$`. Invalid LaTeX fails the build and names the file and line.

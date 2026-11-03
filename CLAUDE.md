@@ -23,7 +23,7 @@ There are no tests or linters. A change is checked by building with no warnings 
 
 ## Architecture
 
-**Identity and navigation.** The name shown across the site comes from `title` in `hugo.toml`, not from `content/_index.md`, whose front matter supplies the home page's links and whose body is the research statement. The menu is `[[menus.main]]` in `hugo.toml`.
+**Identity and navigation.** The name shown across the site comes from `title` in `hugo.toml`, not from `content/_index.md`, whose front matter supplies the home page's photo (`image`), `affiliation` and `links` (each with an optional `icon`: `email`, `github`, `linkedin` or `cv`, drawn from `_partials/icon.html`), and whose body is the research statement. Below it, `home.html` lists the three newest dated entries from Research and Writing, including Writing's `external` essays, so undated entries never appear there. The menu is `[[menus.main]]` in `hugo.toml`.
 
 **Research (`content/research/`).** Each file is one entry, but no paper has its own page: `_index.md` cascades `build.render: never` to its children. `layouts/research/section.html` splits them into Papers and Projects on `project: true` and renders each with `_partials/entry.html`. The filename becomes the anchor, `/research/#file-name`, and the body becomes the collapsible abstract.
 
