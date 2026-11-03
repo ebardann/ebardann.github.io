@@ -24,11 +24,6 @@ name = "Writing"
 pageRef = "/writing"
 weight = 2
 
-[[menus.main]]
-name = "CV"
-url = "/cv.pdf"
-weight = 3
-
 [markup.highlight]
 # Emit classes instead of inline colours. The theme styles none of them, so code stays monochrome.
 noClasses = false

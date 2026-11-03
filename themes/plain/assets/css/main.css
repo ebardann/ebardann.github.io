@@ -100,6 +100,7 @@ p, ul, ol, blockquote, pre, table, figure { margin: 0 0 1.1rem; }
 p, li { text-wrap: pretty; }
 ul, ol { padding-left: 1.4rem; }
 img { display: block; max-width: 100%; height: auto; }
+.portrait { width: 8rem; height: 8rem; margin: 0 0 1.25rem; object-fit: cover; border-radius: 50%; }
 hr { margin: 2.5rem 0; border: 0; border-top: 1px solid var(--rule); }
 
 blockquote {

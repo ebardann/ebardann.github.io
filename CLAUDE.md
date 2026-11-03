@@ -29,7 +29,7 @@ There are no tests or linters. A change is checked by building with no warnings 
 
 **Writing (`content/writing/`).** The list page has two sources, both in `layouts/section.html`. Essays published elsewhere, such as Substack, are `external` entries in the front matter of `_index.md` and render as image cards. Local posts are ordinary files and render as a plain list. Only this section outputs RSS, set in its `_index.md`; `external` entries aren't in the feed.
 
-**CV.** There is no CV page. The menu entry points straight at `static/cv.pdf`.
+**CV.** There is no CV page. The home page's `links` in `content/_index.md` point straight at `static/cv.pdf`; it isn't in the menu.
 
 **Math.** Three pieces work together:
 - `[markup.goldmark.extensions.passthrough]` in `hugo.toml` hands `$…$` and `$$…$$` to the render hook untouched.

@@ -1,5 +1,6 @@
 ---
-title: Emilio Bardán
+title: Home
+image: me.png   # profile photo in static/, shown above the name
 links:
   - name: Email
     url: mailto:qbardan13@gmail.com
@@ -7,6 +8,8 @@ links:
     url: https://github.com/ebardann
   - name: LinkedIn
     url: https://www.linkedin.com/in/emilio-bardan
+  - name: CV
+    url: /cv.pdf
 ---
 
 Applied mathematics undergraduate working where geometry, algebra, and learning systems meet. I'm interested in why neural networks work, what structure they discover, how geometry constrains them, and their ability to represent concepts. Aiming to contribute towards a complete theory of deep learning and solving the intelligence problem.

@@ -1,4 +1,7 @@
 {{ define "main" }}
+{{- with .Params.image }}
+<img class="portrait" src="{{ . | relURL }}" alt="Photo of {{ site.Title }}" width="160" height="160">
+{{- end }}
 <h1>{{ site.Title }}</h1>
 {{ .Content }}
 {{- with .Params.links }}
