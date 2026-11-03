@@ -8,7 +8,7 @@ disableKinds = ["taxonomy", "term"]
 buildFuture = true
 
 [params]
-description = "Personal academic site of Emilio Bardán."
+description = "I'm interested in why neural networks work, what structure they discover, how geometry constrains them, and their ability to represent concepts."
 
 [outputs]
 home = ["html"]
