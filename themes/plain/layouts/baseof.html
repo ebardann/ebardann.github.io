@@ -8,6 +8,17 @@
   <meta name="description" content="{{ or .Description site.Params.description }}">
   <link rel="canonical" href="{{ .Permalink }}">
   <link rel="icon" href="data:,">
+  {{- $title := cond .IsHome site.Title (printf "%s · %s" (.Title | plainify) site.Title) }}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.Title }}">
+  <meta property="og:title" content="{{ $title }}">
+  <meta property="og:description" content="{{ or .Description site.Params.description }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  {{- with site.Home.Params.image }}
+  <meta property="og:image" content="{{ . | absURL }}">
+  <meta property="og:image:alt" content="Photo of {{ site.Title }}">
+  {{- end }}
+  <meta name="twitter:card" content="summary">
   <link rel="preload" href="{{ "fonts/source-serif-4-latin-wght-normal.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
   {{- /* Loaded everywhere: list pages render math from child pages, so a per-page check would miss it. */}}
   <link rel="stylesheet" href="{{ "katex/katex.min.css" | relURL }}">
